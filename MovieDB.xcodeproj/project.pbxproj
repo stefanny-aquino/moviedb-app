@@ -18,6 +18,9 @@
 		E1EFE24229563D6000E155B2 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EFE24129563D6000E155B2 /* LoginView.swift */; };
 		E1EFE2442956419300E155B2 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EFE2432956419300E155B2 /* LoginViewModel.swift */; };
 		E1EFE248295659FA00E155B2 /* CustomTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EFE247295659FA00E155B2 /* CustomTextFieldStyle.swift */; };
+		E1EFE24F2956612F00E155B2 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EFE24E2956612F00E155B2 /* HomeView.swift */; };
+		E1EFE2512956655800E155B2 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EFE2502956655800E155B2 /* HomeViewModel.swift */; };
+		E1EFE25529566A0F00E155B2 /* MovieViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EFE25429566A0F00E155B2 /* MovieViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +55,9 @@
 		E1EFE24129563D6000E155B2 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		E1EFE2432956419300E155B2 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		E1EFE247295659FA00E155B2 /* CustomTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldStyle.swift; sourceTree = "<group>"; };
+		E1EFE24E2956612F00E155B2 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		E1EFE2502956655800E155B2 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		E1EFE25429566A0F00E155B2 /* MovieViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +108,7 @@
 		E1EFE20E2956366700E155B2 /* MovieDB */ = {
 			isa = PBXGroup;
 			children = (
+				E1EFE24A295660C500E155B2 /* Home */,
 				E1EFE24929565AD400E155B2 /* Shared */,
 				E1EFE239295638B200E155B2 /* Login */,
 				E1EFE20F2956366700E155B2 /* MovieDBApp.swift */,
@@ -185,6 +192,40 @@
 				E1EFE246295659E300E155B2 /* Styles */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		E1EFE24A295660C500E155B2 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E1EFE24B295660CE00E155B2 /* Model */,
+				E1EFE24C295660D400E155B2 /* View */,
+				E1EFE24D295660DA00E155B2 /* ViewModel */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		E1EFE24B295660CE00E155B2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E1EFE24C295660D400E155B2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E1EFE24E2956612F00E155B2 /* HomeView.swift */,
+				E1EFE25429566A0F00E155B2 /* MovieViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E1EFE24D295660DA00E155B2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E1EFE2502956655800E155B2 /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,11 +359,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1EFE2122956366700E155B2 /* ContentView.swift in Sources */,
+				E1EFE24F2956612F00E155B2 /* HomeView.swift in Sources */,
 				E1EFE2102956366700E155B2 /* MovieDBApp.swift in Sources */,
+				E1EFE2512956655800E155B2 /* HomeViewModel.swift in Sources */,
 				E1EFE248295659FA00E155B2 /* CustomTextFieldStyle.swift in Sources */,
 				E1EFE24229563D6000E155B2 /* LoginView.swift in Sources */,
 				E1EFE2442956419300E155B2 /* LoginViewModel.swift in Sources */,
 				E1EFE23C29563C4600E155B2 /* User.swift in Sources */,
+				E1EFE25529566A0F00E155B2 /* MovieViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
