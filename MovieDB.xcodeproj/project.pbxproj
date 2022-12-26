@@ -21,6 +21,8 @@
 		E1EFE24F2956612F00E155B2 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EFE24E2956612F00E155B2 /* HomeView.swift */; };
 		E1EFE2512956655800E155B2 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EFE2502956655800E155B2 /* HomeViewModel.swift */; };
 		E1EFE25529566A0F00E155B2 /* MovieViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EFE25429566A0F00E155B2 /* MovieViewCell.swift */; };
+		E1EFE25F2957F57900E155B2 /* TVShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EFE25E2957F57900E155B2 /* TVShow.swift */; };
+		E1EFE2612958008400E155B2 /* TVShowResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EFE2602958008400E155B2 /* TVShowResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,8 @@
 		E1EFE24E2956612F00E155B2 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		E1EFE2502956655800E155B2 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		E1EFE25429566A0F00E155B2 /* MovieViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewCell.swift; sourceTree = "<group>"; };
+		E1EFE25E2957F57900E155B2 /* TVShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShow.swift; sourceTree = "<group>"; };
+		E1EFE2602958008400E155B2 /* TVShowResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +211,8 @@
 		E1EFE24B295660CE00E155B2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E1EFE25E2957F57900E155B2 /* TVShow.swift */,
+				E1EFE2602958008400E155B2 /* TVShowResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -358,6 +364,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1EFE25F2957F57900E155B2 /* TVShow.swift in Sources */,
+				E1EFE2612958008400E155B2 /* TVShowResponse.swift in Sources */,
 				E1EFE2122956366700E155B2 /* ContentView.swift in Sources */,
 				E1EFE24F2956612F00E155B2 /* HomeView.swift in Sources */,
 				E1EFE2102956366700E155B2 /* MovieDBApp.swift in Sources */,
