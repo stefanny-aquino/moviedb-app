@@ -9,14 +9,26 @@ import Foundation
 import SwiftUI
 
 struct MovieViewCell: View {
+    
+    var tvShow: TVShow
+    
     var body: some View {
         VStack {
-            Image("img.logo")
-                .resizable()
-                .scaledToFit()
-                .frame(maxHeight: .infinity)
+            if #available(iOS 15.0, *) {
+                if let imageUrl = getImageUrl(path: tvShow.imagePath) {
+                    AsyncImage(url: imageUrl)
+                        .scaledToFit()
+                } else {
+                    Image("img.logo")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(maxHeight: .infinity)
+                }
+            } else {
+                
+            }
             VStack(alignment: .leading, spacing: 10) {
-                Text("Title")
+                Text(tvShow.name)
                     .bold()
                     .font(.footnote)
                 HStack {
@@ -40,11 +52,16 @@ struct MovieViewCell: View {
         .background(Color("black"))
         .cornerRadius(15)
     }
+    
+    private func getImageUrl(path: String?) -> URL? {
+        guard let url = path else { return nil }
+        return Network.baseImageURL?.appendingPathComponent(url)
+    }
 }
 
 struct MovieViewCell_Previews: PreviewProvider {
     static var previews: some View {
-        MovieViewCell()
+        MovieViewCell(tvShow: TVShow(name: "Test", imagePath: nil))
             .frame(width: 175)
     }
 }

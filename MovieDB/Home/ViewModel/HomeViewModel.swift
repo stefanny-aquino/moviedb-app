@@ -6,8 +6,26 @@
 //
 
 import Foundation
+import Combine
 
-struct HomeViewModel {
+class HomeViewModel: ObservableObject {
+    private var disposables = Set<AnyCancellable>()
+    var homeService: HomeService
+    
+    @Published var tvShows: [TVShow] = []
+    
+    init(homeService: HomeService = HomeService()) {
+        self.homeService = homeService
+    }
+    
+    func getTVShows() {
+        homeService.getTVShows(filterBy: .popular)
+            .sink { completion in
+            } receiveValue: { response in
+                self.tvShows = response.results
+            }
+            .store(in: &disposables)
+    }
     
 }
 

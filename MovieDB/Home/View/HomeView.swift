@@ -10,9 +10,12 @@ import SwiftUI
 import Combine
 
 struct HomeView: View {
+    @ObservedObject var homeViewModel: HomeViewModel
+    
     @State var selection: FilterType = .popular
     
-    init() {
+    init(homeViewModel: HomeViewModel = HomeViewModel()) {
+        self.homeViewModel = homeViewModel
         UISegmentedControl.appearance().selectedSegmentTintColor = .darkGray
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
     }
@@ -45,12 +48,15 @@ struct HomeView: View {
                 ScrollView {
                     LazyVGrid(columns: [.init(), .init()], spacing: 10) {
                         
-                        ForEach(["0"], id: \.self) { item in
-                            MovieViewCell()
+                        ForEach(homeViewModel.tvShows, id: \.self) { item in
+                            MovieViewCell(tvShow: item)
                         }
                     }.padding(10)
                 }
             }
+        }
+        .onAppear {
+            homeViewModel.getTVShows()
         }
     }
 }
