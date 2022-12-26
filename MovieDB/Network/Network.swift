@@ -9,7 +9,7 @@ import Foundation
 
 struct Network {
     private let baseURL = URL(string: "https://api.themoviedb.org/3/")
-    static let baseImageURL = URL(string: "https://image.tmdb.org/t/p/w154")
+    static let baseImageURL = URL(string: "https://image.tmdb.org/t/p/w500")
     private let apiKey = "c72d42c8bdfaedc7f8495d267c31248d"
     
     enum Endpoint: String {

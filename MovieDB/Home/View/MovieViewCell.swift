@@ -14,19 +14,7 @@ struct MovieViewCell: View {
     
     var body: some View {
         VStack {
-            if #available(iOS 15.0, *) {
-                if let imageUrl = getImageUrl(path: tvShow.imagePath) {
-                    AsyncImage(url: imageUrl)
-                        .scaledToFit()
-                } else {
-                    Image("img.logo")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(maxHeight: .infinity)
-                }
-            } else {
-                
-            }
+            ImageView(url: getImageUrl(path: tvShow.imagePath))
             VStack(alignment: .leading, spacing: 10) {
                 Text(tvShow.name)
                     .bold()
@@ -53,9 +41,9 @@ struct MovieViewCell: View {
         .cornerRadius(15)
     }
     
-    private func getImageUrl(path: String?) -> URL? {
-        guard let url = path else { return nil }
-        return Network.baseImageURL?.appendingPathComponent(url)
+    private func getImageUrl(path: String?) -> String? {
+        guard let url = path, let baseUrl = Network.baseImageURL else { return nil }
+        return baseUrl.appendingPathComponent(url).absoluteString
     }
 }
 
