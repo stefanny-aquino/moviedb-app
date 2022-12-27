@@ -21,4 +21,14 @@ class MovieDetailService {
         let request = network.request(path: fullPath, method: .GET, data: nil)
         return HTTPClient().fetch(request)
     }
+    
+    func getMovieCredits(id: Int) -> AnyPublisher<TVShowCreditsResponse, Error> {
+        let fullPath = "\(Endpoint.tvShow.rawValue)/\(id)/\(MovieDetailEndpoint.credits)"
+        let request = network.request(path: fullPath, method: .GET, data: nil)
+        return HTTPClient().fetch(request)
+    }
+}
+
+enum MovieDetailEndpoint {
+    static let credits = "credits"
 }

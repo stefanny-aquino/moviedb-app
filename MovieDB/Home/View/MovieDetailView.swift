@@ -75,7 +75,19 @@ struct MovieDetailView: View {
                                     }
                                     .padding(.leading, 30)
                                 }
-                                TitleView(text: "Cast")
+                                if viewModel.cast.count > 0 {
+                                    VStack(alignment: .leading, spacing: 0) {
+                                        TitleView(text: "Cast")
+                                        ScrollView (.horizontal, showsIndicators: false) {
+                                            HStack(alignment: .top) {
+                                                ForEach(viewModel.cast, id: \.self) { item in
+                                                    CastViewCell(cast: item)
+                                                        .frame(width: 100,      height: 170)
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
                             }
                             .padding(.leading, 20)
                             .padding(.trailing, 20)
@@ -89,6 +101,7 @@ struct MovieDetailView: View {
         .edgesIgnoringSafeArea(.vertical)
         .onAppear {
             viewModel.getMovie(tvShowId)
+            viewModel.getMovieCredits(tvShowId)
         }
     }
     
