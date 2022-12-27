@@ -12,16 +12,21 @@ struct TVShow: Codable, Hashable {
     let name: String
     let description: String
     let imagePath: String?
+    let backdropPath: String?
     let vote: Double
     let airDate: String
+    let createdBy: [Person]
+    let seasons: [Season]
     
     enum CodingKeys: String, CodingKey {
         case id = "id"
         case name = "name"
         case description = "overview"
         case imagePath = "poster_path"
+        case backdropPath = "backdrop_path"
         case vote = "vote_average"
         case airDate = "first_air_date"
+        case createdBy = "created_by"
+        case seasons = "seasons"
     }
-    
 }
