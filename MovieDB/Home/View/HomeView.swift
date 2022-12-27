@@ -27,16 +27,7 @@ struct HomeView: View {
             Color("background.black")
                 .edgesIgnoringSafeArea(.bottom)
             VStack {
-                VStack {
-                    HStack {
-                        Text("TV Shows")
-                            .foregroundColor(.white)
-                    }
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 45)
-                }
-                .background(Color("header"))
-                
+                HeaderView()
                 Picker("Title", selection: $selection) {
                     ForEach(FilterType.allCases, id: \.self) { item in
                         Text(item.rawValue)
@@ -61,6 +52,20 @@ struct HomeView: View {
         .onAppear {
             homeViewModel.getTVShows(.popular)
         }
+    }
+}
+
+struct HeaderView: View {
+    var body: some View {
+        VStack {
+            HStack {
+                Text("TV Shows")
+                    .foregroundColor(.white)
+            }
+            .frame(maxWidth: .infinity)
+            .frame(height: 45)
+        }
+        .background(Color("header"))
     }
 }
 
