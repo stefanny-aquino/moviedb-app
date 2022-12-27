@@ -19,22 +19,29 @@ struct MovieViewCell: View {
                 Text(tvShow.name)
                     .bold()
                     .font(.footnote)
+                    .lineLimit(1)
                 HStack {
-                    Text("Aug 10, 2020")
+                    Text(tvShow.airDate.formatDate())
                         .bold()
                         .font(.caption2)
                     Spacer()
-                    Text("7.6")
-                        .bold()
-                        .font(.caption2)
+                    HStack(spacing: 3) {
+                        Image(systemName: "star.fill")
+                            .resizable()
+                            .frame(width: 10, height: 10)
+                        Text("\(tvShow.vote.format())")
+                            .bold()
+                            .font(.caption2)
+                    }
                 }
-                Text("Description")
+                Text(tvShow.description)
+                    .foregroundColor(.white)
                     .font(.caption2)
                     .lineLimit(4)
             }
             .padding(10)
             .padding(.bottom, 12)
-            .foregroundColor(.white)
+            .foregroundColor(Color("primary.green"))
         }
         .frame(height: 350)
         .background(Color("black"))
@@ -49,7 +56,7 @@ struct MovieViewCell: View {
 
 struct MovieViewCell_Previews: PreviewProvider {
     static var previews: some View {
-        MovieViewCell(tvShow: TVShow(name: "Test", imagePath: nil))
+        MovieViewCell(tvShow: TVShow(id: 1, name: "Test", description: "Test", imagePath: nil, vote: 7.8, airDate: "2022-08-23"))
             .frame(width: 175)
     }
 }
