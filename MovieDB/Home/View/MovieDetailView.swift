@@ -9,13 +9,17 @@ import Foundation
 import SwiftUI
 
 struct MovieDetailView: View {
-    var tvShow: TVShow
+    @ObservedObject var viewModel: MovieDetailViewModel
+    
+    init(movieDetailViewModel: MovieDetailViewModel = MovieDetailViewModel()) {
+        self.viewModel = movieDetailViewModel
+    }
     
     var body: some View {
         ZStack {
             Color("background.black")
             VStack{
-                ImageView(url: tvShow.backdropPath)
+                ImageView(url: viewModel.tvShow.backdropPath)
                     .frame(height: 210)
                 Spacer()
             }
@@ -31,7 +35,7 @@ struct MovieDetailView: View {
                                 Circle()
                                     .frame(width: 40, height: 40)
                                     .foregroundColor(Color.green)
-                                Text(tvShow.vote.format())
+                                Text(viewModel.tvShow.vote.format())
                                     .font(.headline)
                                     .foregroundColor(.white)
                             }
@@ -42,7 +46,7 @@ struct MovieDetailView: View {
                             VStack(alignment: .leading, spacing: 15) {
                                 TitleView(text: "Summary")
                                 HStack {
-                                    Text(tvShow.name)
+                                    Text(viewModel.tvShow.name)
                                         .font(.headline)
                                         .foregroundColor(.white)
                                     Spacer()
@@ -52,17 +56,16 @@ struct MovieDetailView: View {
                                         .padding(.trailing, 20)
                                         .foregroundColor(Color("primary.green"))
                                 }
-                                Text(tvShow.description)
+                                Text(viewModel.tvShow.description)
                                     .font(.footnote)
                                     .foregroundColor(.white)
-                                Text(getCrew(tvShow.createdBy))
+                                Text(getCrew(viewModel.tvShow.createdBy))
                                     .bold()
                                     .font(.footnote)
                                     .foregroundColor(.white)
                                 TitleView(text: "Last Season")
                                 HStack {
-                                    Image("img.preview")
-                                        .resizable()
+                                    ImageView(url: viewModel.tvShow.imagePath)
                                         .frame(width: 130, height: 180)
                                     
                                     VStack(alignment: .leading, spacing: 10) {
@@ -121,7 +124,7 @@ struct TitleView: View {
 
 struct MovieDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieDetailView(tvShow:  TVShow(id: 1, name: "Test", description: "Test", imagePath: nil, backdropPath: nil, vote: 9.8, airDate: "2022-09-09", createdBy: [Person(name: "Jhon Doe", profilePath: nil), Person(name: "Jhon Doe", profilePath: nil)], seasons: []))
+        MovieDetailView()
     }
 }
 
