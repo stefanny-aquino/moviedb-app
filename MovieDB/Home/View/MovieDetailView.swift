@@ -66,30 +66,12 @@ struct MovieDetailView: View {
                                     .font(.footnote)
                                     .foregroundColor(.white)
                                 TitleView(text: "Last Season")
-                                HStack {
+                                HStack(alignment: .center) {
                                     ImageView(url: Helper.getImageUrl(viewModel.lastSeason.posterPath))
                                         .frame(width: 130, height: 180)
-                                    
-                                    VStack(alignment: .leading, spacing: 10) {
-                                        Text(viewModel.lastSeason.name)
-                                            .bold()
-                                            .font(.subheadline)
-                                            .foregroundColor(.white)
-                                        Text(viewModel.lastSeason.airDate.formatDate())
-                                            .font(.caption2)
-                                            .foregroundColor(Color("primary.green"))
-                                        Button {
-                                            
-                                        } label: {
-                                            Text("View All Seasons")
-                                                .font(.caption2)
-                                                .foregroundColor(.white)
-                                                .padding(.vertical, 10)
-                                                .padding(.horizontal, 12)
-                                        }
-                                        .background(Color("primary.green"))
-                                        .cornerRadius(5)
-                                        
+                                    VStack {
+                                        LastSeasonViewRepresentable(lastSeason: $viewModel.lastSeason)
+                                            .frame(height: 100)
                                     }
                                     .padding(.leading, 30)
                                 }
@@ -125,6 +107,19 @@ struct TitleView: View {
             .bold()
             .font(.headline)
             .foregroundColor(Color("primary.green"))
+    }
+}
+
+struct LastSeasonViewRepresentable: UIViewRepresentable {
+    typealias UIViewType = LastSeasonView
+    @Binding var lastSeason: Season
+
+    func makeUIView(context: Context) -> LastSeasonView {
+        return LastSeasonView()
+    }
+
+    func updateUIView(_ uiView: LastSeasonView, context: Context) {
+        uiView.lastSeason = lastSeason
     }
 }
 
