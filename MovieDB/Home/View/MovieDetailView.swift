@@ -104,7 +104,7 @@ struct MovieDetailView: View {
             .padding(.horizontal, 25)
             .padding(.top, 180)
         }
-        .edgesIgnoringSafeArea(.bottom)
+        .edgesIgnoringSafeArea(.vertical)
         .onAppear {
             viewModel.getMovie(tvShowId)
         }

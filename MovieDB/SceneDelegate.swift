@@ -25,6 +25,7 @@ class SceneDelegate: NSObject, UIWindowSceneDelegate {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
             window.rootViewController = UIHostingController(rootView: contentView)
+            window.tintColor = .white
             self.window = window
             window.makeKeyAndVisible()
         }
