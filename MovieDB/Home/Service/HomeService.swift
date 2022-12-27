@@ -17,7 +17,7 @@ class HomeService {
     }
     
     func getTVShows(filterBy: FilterType) -> AnyPublisher<TVShowResponse, Error> {
-        let fullPath = "\(Endpoint.tvShow)/\(filterBy.getPath())"
+        let fullPath = "\(Endpoint.tvShow.rawValue)/\(filterBy.getPath())"
         let request = network.request(path: fullPath, method: .GET, data: nil)
         return HTTPClient().fetch(request)
     }
