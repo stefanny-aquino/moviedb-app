@@ -11,7 +11,7 @@ import SwiftUI
 struct ImageView: View {
     @ObservedObject var imageModel: ImageModel
     var defaultImage: UIImage {
-        UIImage(named: "img.logo") ?? UIImage()
+        UIImage(named: "img.preview") ?? UIImage()
     }
     
     init(url: String?) {
