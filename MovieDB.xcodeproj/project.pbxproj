@@ -41,6 +41,8 @@
 		E1FA2036295B67690019C5F2 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FA2035295B67690019C5F2 /* Helper.swift */; };
 		E1FA2038295B8BC80019C5F2 /* LastSeasonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FA2037295B8BC80019C5F2 /* LastSeasonView.swift */; };
 		E1FA203A295BA2640019C5F2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FA2039295BA2640019C5F2 /* Constants.swift */; };
+		E1FA203C295BA7A30019C5F2 /* CastViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FA203B295BA7A30019C5F2 /* CastViewCell.swift */; };
+		E1FA203E295BAA0D0019C5F2 /* TVShowCreditsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FA203D295BAA0D0019C5F2 /* TVShowCreditsResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +100,8 @@
 		E1FA2035295B67690019C5F2 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		E1FA2037295B8BC80019C5F2 /* LastSeasonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastSeasonView.swift; sourceTree = "<group>"; };
 		E1FA2039295BA2640019C5F2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E1FA203B295BA7A30019C5F2 /* CastViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastViewCell.swift; sourceTree = "<group>"; };
+		E1FA203D295BAA0D0019C5F2 /* TVShowCreditsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowCreditsResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -294,6 +298,7 @@
 				E1ABB67E295A9D0D006B08EE /* Person.swift */,
 				E1ABB680295AA60E006B08EE /* Season.swift */,
 				E1ABB682295AA616006B08EE /* Episode.swift */,
+				E1FA203D295BAA0D0019C5F2 /* TVShowCreditsResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -305,6 +310,7 @@
 				E1EFE25429566A0F00E155B2 /* MovieViewCell.swift */,
 				E1D2F2E2295A1BAD00F5D8FF /* MovieDetailView.swift */,
 				E1FA2037295B8BC80019C5F2 /* LastSeasonView.swift */,
+				E1FA203B295BA7A30019C5F2 /* CastViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -486,6 +492,7 @@
 				E1ABB687295B55EE006B08EE /* MovieDetailService.swift in Sources */,
 				E1EFE2102956366700E155B2 /* MovieDBApp.swift in Sources */,
 				E1EFE2512956655800E155B2 /* HomeViewModel.swift in Sources */,
+				E1FA203E295BAA0D0019C5F2 /* TVShowCreditsResponse.swift in Sources */,
 				E1EFE248295659FA00E155B2 /* CustomTextFieldStyle.swift in Sources */,
 				E1EFE25A29576D7000E155B2 /* Network.swift in Sources */,
 				E1ABB67F295A9D0D006B08EE /* Person.swift in Sources */,
@@ -499,6 +506,7 @@
 				E1EFE23C29563C4600E155B2 /* User.swift in Sources */,
 				E1D2F2E3295A1BAD00F5D8FF /* MovieDetailView.swift in Sources */,
 				E1FA2033295B62060019C5F2 /* SceneDelegate.swift in Sources */,
+				E1FA203C295BA7A30019C5F2 /* CastViewCell.swift in Sources */,
 				E1ABB685295B52AA006B08EE /* MovieDetailViewModel.swift in Sources */,
 				E1EFE25529566A0F00E155B2 /* MovieViewCell.swift in Sources */,
 				E1ABB681295AA60E006B08EE /* Season.swift in Sources */,
