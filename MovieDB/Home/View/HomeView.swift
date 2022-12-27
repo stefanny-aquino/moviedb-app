@@ -13,6 +13,8 @@ struct HomeView: View {
     @ObservedObject var homeViewModel: HomeViewModel
     
     @State var selection: FilterType = .popular
+    @State var showDetailMovie = false
+    @State var selectedMovie = 0
     
     init(homeViewModel: HomeViewModel = HomeViewModel()) {
         self.homeViewModel = homeViewModel
@@ -21,36 +23,44 @@ struct HomeView: View {
     }
     
     var body: some View {
-        ZStack {
-            Color("header")
-                .edgesIgnoringSafeArea(.top)
-            Color("background.black")
-                .edgesIgnoringSafeArea(.bottom)
-            VStack {
-                HeaderView()
-                Picker("Title", selection: $selection) {
-                    ForEach(FilterType.allCases, id: \.self) { item in
-                        Text(item.rawValue)
+        VStack {
+            NavigationLink(destination: MovieDetailView(tvShowId: selectedMovie), isActive: $showDetailMovie, label: {
+                EmptyView()
+            })
+            
+            ZStack {
+                Color("header")
+                    .edgesIgnoringSafeArea(.top)
+                Color("background.black")
+                    .edgesIgnoringSafeArea(.bottom)
+                VStack {
+                    HeaderView()
+                    Picker("Title", selection: $selection) {
+                        ForEach(FilterType.allCases, id: \.self) { item in
+                            Text(item.rawValue)
+                        }
+                    }
+                    .onChange(of: selection, perform: { newValue in
+                        homeViewModel.getTVShows(newValue)
+                    })
+                    .pickerStyle(SegmentedPickerStyle())
+                    .padding(.vertical, 15)
+                    .padding(.horizontal, 25)
+                    ScrollView {
+                        LazyVGrid(columns: [.init(), .init()], spacing: 10) {
+                            ForEach(homeViewModel.tvShows, id: \.self) { item in
+                                MovieViewCell(tvShow: item) {
+                                    selectedMovie = item.id
+                                    showDetailMovie.toggle()
+                                }
+                            }
+                        }.padding(10)
                     }
                 }
-                .onChange(of: selection, perform: { newValue in
-                    homeViewModel.getTVShows(newValue)
-                })
-                .pickerStyle(SegmentedPickerStyle())
-                .padding(.vertical, 15)
-                .padding(.horizontal, 25)
-                ScrollView {
-                    LazyVGrid(columns: [.init(), .init()], spacing: 10) {
-                        
-                        ForEach(homeViewModel.tvShows, id: \.self) { item in
-                            MovieViewCell(tvShow: item)
-                        }
-                    }.padding(10)
-                }
             }
-        }
-        .onAppear {
-            homeViewModel.getTVShows(.popular)
+            .onAppear {
+                homeViewModel.getTVShows(.popular)
+            }
         }
     }
 }

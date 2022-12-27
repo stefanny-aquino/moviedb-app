@@ -10,16 +10,18 @@ import SwiftUI
 
 struct MovieDetailView: View {
     @ObservedObject var viewModel: MovieDetailViewModel
+    var tvShowId: Int
     
-    init(movieDetailViewModel: MovieDetailViewModel = MovieDetailViewModel()) {
+    init(movieDetailViewModel: MovieDetailViewModel = MovieDetailViewModel(), tvShowId: Int) {
         self.viewModel = movieDetailViewModel
+        self.tvShowId = tvShowId
     }
     
     var body: some View {
         ZStack {
             Color("background.black")
             VStack{
-                ImageView(url: viewModel.tvShow.backdropPath)
+                ImageView(url: Helper.getImageUrl(viewModel.tvShow.backdropPath))
                     .frame(height: 210)
                 Spacer()
             }
@@ -65,15 +67,15 @@ struct MovieDetailView: View {
                                     .foregroundColor(.white)
                                 TitleView(text: "Last Season")
                                 HStack {
-                                    ImageView(url: viewModel.tvShow.imagePath)
+                                    ImageView(url: Helper.getImageUrl(viewModel.lastSeason.posterPath))
                                         .frame(width: 130, height: 180)
                                     
                                     VStack(alignment: .leading, spacing: 10) {
-                                        Text("Season 4")
+                                        Text(viewModel.lastSeason.name)
                                             .bold()
                                             .font(.subheadline)
                                             .foregroundColor(.white)
-                                        Text("Nov 10, 14")
+                                        Text(viewModel.lastSeason.airDate.formatDate())
                                             .font(.caption2)
                                             .foregroundColor(Color("primary.green"))
                                         Button {
@@ -103,12 +105,16 @@ struct MovieDetailView: View {
             .padding(.top, 180)
         }
         .edgesIgnoringSafeArea(.bottom)
-        
+        .onAppear {
+            viewModel.getMovie(tvShowId)
+        }
     }
     
-    func getCrew(_ createdBy: [Person]) -> String {
+    func getCrew(_ createdBy: [Person]?) -> String {
+        guard let createdBy = createdBy else { return "" }
         return createdBy.map { $0.name }.joined(separator: ", ")
     }
+    
 }
 
 struct TitleView: View {
@@ -124,7 +130,7 @@ struct TitleView: View {
 
 struct MovieDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieDetailView()
+        MovieDetailView(tvShowId: 0)
     }
 }
 

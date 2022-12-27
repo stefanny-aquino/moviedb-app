@@ -15,8 +15,8 @@ struct TVShow: Codable, Hashable {
     let backdropPath: String?
     let vote: Double
     let airDate: String
-    let createdBy: [Person]
-    let seasons: [Season]
+    var createdBy: [Person]?
+    var seasons: [Season]?
     
     enum CodingKeys: String, CodingKey {
         case id = "id"

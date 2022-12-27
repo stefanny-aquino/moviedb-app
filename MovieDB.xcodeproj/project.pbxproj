@@ -13,6 +13,7 @@
 		E1ABB681295AA60E006B08EE /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ABB680295AA60E006B08EE /* Season.swift */; };
 		E1ABB683295AA616006B08EE /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ABB682295AA616006B08EE /* Episode.swift */; };
 		E1ABB685295B52AA006B08EE /* MovieDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ABB684295B52AA006B08EE /* MovieDetailViewModel.swift */; };
+		E1ABB687295B55EE006B08EE /* MovieDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ABB686295B55EE006B08EE /* MovieDetailService.swift */; };
 		E1C01E092959F55D00A86BF5 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C01E082959F55D00A86BF5 /* ImageView.swift */; };
 		E1C01E0B2959F5E500A86BF5 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C01E0A2959F5E500A86BF5 /* ImageModel.swift */; };
 		E1D2F2E3295A1BAD00F5D8FF /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D2F2E2295A1BAD00F5D8FF /* MovieDetailView.swift */; };
@@ -35,6 +36,9 @@
 		E1EFE25D2957784F00E155B2 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EFE25C2957784F00E155B2 /* HomeService.swift */; };
 		E1EFE25F2957F57900E155B2 /* TVShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EFE25E2957F57900E155B2 /* TVShow.swift */; };
 		E1EFE2612958008400E155B2 /* TVShowResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EFE2602958008400E155B2 /* TVShowResponse.swift */; };
+		E1FA2031295B61D10019C5F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FA2030295B61D10019C5F2 /* AppDelegate.swift */; };
+		E1FA2033295B62060019C5F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FA2032295B62060019C5F2 /* SceneDelegate.swift */; };
+		E1FA2036295B67690019C5F2 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FA2035295B67690019C5F2 /* Helper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +65,7 @@
 		E1ABB680295AA60E006B08EE /* Season.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Season.swift; sourceTree = "<group>"; };
 		E1ABB682295AA616006B08EE /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		E1ABB684295B52AA006B08EE /* MovieDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewModel.swift; sourceTree = "<group>"; };
+		E1ABB686295B55EE006B08EE /* MovieDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailService.swift; sourceTree = "<group>"; };
 		E1C01E082959F55D00A86BF5 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		E1C01E0A2959F5E500A86BF5 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		E1D2F2E2295A1BAD00F5D8FF /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
@@ -86,6 +91,9 @@
 		E1EFE25C2957784F00E155B2 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 		E1EFE25E2957F57900E155B2 /* TVShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShow.swift; sourceTree = "<group>"; };
 		E1EFE2602958008400E155B2 /* TVShowResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowResponse.swift; sourceTree = "<group>"; };
+		E1FA2030295B61D10019C5F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E1FA2032295B62060019C5F2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		E1FA2035295B67690019C5F2 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +179,7 @@
 		E1EFE20E2956366700E155B2 /* MovieDB */ = {
 			isa = PBXGroup;
 			children = (
+				E1FA2034295B66C10019C5F2 /* Helpers */,
 				E1EFE24929565AD400E155B2 /* Shared */,
 				E1EFE2562957669900E155B2 /* Network */,
 				E1EFE24A295660C500E155B2 /* Home */,
@@ -178,6 +187,8 @@
 				E1EFE20F2956366700E155B2 /* MovieDBApp.swift */,
 				E1EFE2112956366700E155B2 /* ContentView.swift */,
 				E1EFE2132956366900E155B2 /* Assets.xcassets */,
+				E1FA2030295B61D10019C5F2 /* AppDelegate.swift */,
+				E1FA2032295B62060019C5F2 /* SceneDelegate.swift */,
 				E1EFE2152956366900E155B2 /* Preview Content */,
 			);
 			path = MovieDB;
@@ -314,8 +325,17 @@
 			isa = PBXGroup;
 			children = (
 				E1EFE25C2957784F00E155B2 /* HomeService.swift */,
+				E1ABB686295B55EE006B08EE /* MovieDetailService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		E1FA2034295B66C10019C5F2 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E1FA2035295B67690019C5F2 /* Helper.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -453,13 +473,16 @@
 				E1ABB67A295A71E6006B08EE /* DoubleExtension.swift in Sources */,
 				E1EFE2612958008400E155B2 /* TVShowResponse.swift in Sources */,
 				E1EFE2122956366700E155B2 /* ContentView.swift in Sources */,
+				E1FA2036295B67690019C5F2 /* Helper.swift in Sources */,
 				E1ABB683295AA616006B08EE /* Episode.swift in Sources */,
 				E1EFE24F2956612F00E155B2 /* HomeView.swift in Sources */,
+				E1ABB687295B55EE006B08EE /* MovieDetailService.swift in Sources */,
 				E1EFE2102956366700E155B2 /* MovieDBApp.swift in Sources */,
 				E1EFE2512956655800E155B2 /* HomeViewModel.swift in Sources */,
 				E1EFE248295659FA00E155B2 /* CustomTextFieldStyle.swift in Sources */,
 				E1EFE25A29576D7000E155B2 /* Network.swift in Sources */,
 				E1ABB67F295A9D0D006B08EE /* Person.swift in Sources */,
+				E1FA2031295B61D10019C5F2 /* AppDelegate.swift in Sources */,
 				E1EFE25D2957784F00E155B2 /* HomeService.swift in Sources */,
 				E1EFE24229563D6000E155B2 /* LoginView.swift in Sources */,
 				E1EFE258295766AB00E155B2 /* HTTPClient.swift in Sources */,
@@ -467,6 +490,7 @@
 				E1ABB67D295A73D8006B08EE /* StringExtension.swift in Sources */,
 				E1EFE23C29563C4600E155B2 /* User.swift in Sources */,
 				E1D2F2E3295A1BAD00F5D8FF /* MovieDetailView.swift in Sources */,
+				E1FA2033295B62060019C5F2 /* SceneDelegate.swift in Sources */,
 				E1ABB685295B52AA006B08EE /* MovieDetailViewModel.swift in Sources */,
 				E1EFE25529566A0F00E155B2 /* MovieViewCell.swift in Sources */,
 				E1ABB681295AA60E006B08EE /* Season.swift in Sources */,

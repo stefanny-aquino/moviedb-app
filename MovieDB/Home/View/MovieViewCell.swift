@@ -11,10 +11,11 @@ import SwiftUI
 struct MovieViewCell: View {
     
     var tvShow: TVShow
+    let selectedMovie : () -> Void
     
     var body: some View {
         VStack {
-            ImageView(url: getImageUrl(path: tvShow.imagePath))
+            ImageView(url: Helper.getImageUrl(tvShow.imagePath))
             VStack(alignment: .leading, spacing: 10) {
                 Text(tvShow.name)
                     .bold()
@@ -46,17 +47,15 @@ struct MovieViewCell: View {
         .frame(height: 350)
         .background(Color("black"))
         .cornerRadius(15)
-    }
-    
-    private func getImageUrl(path: String?) -> String? {
-        guard let url = path, let baseUrl = Network.baseImageURL else { return nil }
-        return baseUrl.appendingPathComponent(url).absoluteString
+        .onTapGesture {
+            selectedMovie()
+        }
     }
 }
 
 struct MovieViewCell_Previews: PreviewProvider {
     static var previews: some View {
-        MovieViewCell(tvShow: TVShow(id: 1, name: "Test", description: "Test", imagePath: nil, backdropPath: nil, vote: 7.8, airDate: "2022-08-23", createdBy: [], seasons: []))
+        MovieViewCell(tvShow: TVShow(id: 1, name: "Test", description: "Test", imagePath: nil, backdropPath: nil, vote: 7.8, airDate: "2022-08-23", createdBy: [], seasons: [])) { }
             .frame(width: 175)
     }
 }

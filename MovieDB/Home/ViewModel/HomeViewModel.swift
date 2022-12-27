@@ -13,6 +13,7 @@ class HomeViewModel: ObservableObject {
     var homeService: HomeService
     
     @Published var tvShows: [TVShow] = []
+    @Published var selectedMovie: Int = 0
     
     init(homeService: HomeService = HomeService()) {
         self.homeService = homeService
