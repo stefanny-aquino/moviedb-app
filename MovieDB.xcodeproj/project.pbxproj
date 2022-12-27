@@ -39,6 +39,8 @@
 		E1FA2031295B61D10019C5F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FA2030295B61D10019C5F2 /* AppDelegate.swift */; };
 		E1FA2033295B62060019C5F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FA2032295B62060019C5F2 /* SceneDelegate.swift */; };
 		E1FA2036295B67690019C5F2 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FA2035295B67690019C5F2 /* Helper.swift */; };
+		E1FA2038295B8BC80019C5F2 /* LastSeasonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FA2037295B8BC80019C5F2 /* LastSeasonView.swift */; };
+		E1FA203A295BA2640019C5F2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FA2039295BA2640019C5F2 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +96,8 @@
 		E1FA2030295B61D10019C5F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1FA2032295B62060019C5F2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E1FA2035295B67690019C5F2 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		E1FA2037295B8BC80019C5F2 /* LastSeasonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastSeasonView.swift; sourceTree = "<group>"; };
+		E1FA2039295BA2640019C5F2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +270,7 @@
 			children = (
 				E1C01E062959F54500A86BF5 /* Components */,
 				E1EFE246295659E300E155B2 /* Styles */,
+				E1FA2039295BA2640019C5F2 /* Constants.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -299,6 +304,7 @@
 				E1EFE24E2956612F00E155B2 /* HomeView.swift */,
 				E1EFE25429566A0F00E155B2 /* MovieViewCell.swift */,
 				E1D2F2E2295A1BAD00F5D8FF /* MovieDetailView.swift */,
+				E1FA2037295B8BC80019C5F2 /* LastSeasonView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -473,6 +479,7 @@
 				E1ABB67A295A71E6006B08EE /* DoubleExtension.swift in Sources */,
 				E1EFE2612958008400E155B2 /* TVShowResponse.swift in Sources */,
 				E1EFE2122956366700E155B2 /* ContentView.swift in Sources */,
+				E1FA203A295BA2640019C5F2 /* Constants.swift in Sources */,
 				E1FA2036295B67690019C5F2 /* Helper.swift in Sources */,
 				E1ABB683295AA616006B08EE /* Episode.swift in Sources */,
 				E1EFE24F2956612F00E155B2 /* HomeView.swift in Sources */,
@@ -483,6 +490,7 @@
 				E1EFE25A29576D7000E155B2 /* Network.swift in Sources */,
 				E1ABB67F295A9D0D006B08EE /* Person.swift in Sources */,
 				E1FA2031295B61D10019C5F2 /* AppDelegate.swift in Sources */,
+				E1FA2038295B8BC80019C5F2 /* LastSeasonView.swift in Sources */,
 				E1EFE25D2957784F00E155B2 /* HomeService.swift in Sources */,
 				E1EFE24229563D6000E155B2 /* LoginView.swift in Sources */,
 				E1EFE258295766AB00E155B2 /* HTTPClient.swift in Sources */,

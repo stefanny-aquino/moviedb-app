@@ -10,7 +10,7 @@ import Foundation
 struct Helper {
     
     static func getImageUrl(_ url: String?) -> String? {
-        guard let url = url, let baseUrl = Network.baseImageURL else { return nil }
+        guard let url = url, let baseUrl = Constants.baseImageURL else { return nil }
         return baseUrl.appendingPathComponent(url).absoluteString
     }
 }

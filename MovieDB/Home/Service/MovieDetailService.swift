@@ -10,9 +10,9 @@ import Combine
 
 class MovieDetailService {
     
-    let network: Network
+    let network: NetworkProtocol
     
-    init(network: Network = Network()) {
+    init(network: NetworkProtocol = Network()) {
         self.network = network
     }
     

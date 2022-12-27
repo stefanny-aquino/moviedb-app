@@ -12,19 +12,27 @@ enum Endpoint: String {
     case tvShow = "tv"
 }
 
+enum Method: String {
+    case GET
+    case POST
+}
 
-struct Network {
-    private let baseURL = URL(string: "https://api.themoviedb.org/3/")
-    static let baseImageURL = URL(string: "https://image.tmdb.org/t/p/w500")
-    private let apiKey = "c72d42c8bdfaedc7f8495d267c31248d"
+protocol NetworkProtocol {
+    var baseURL: URL? { get set }
+    func request(path: String, method: Method, data: Data?) -> URLRequest
+}
+
+struct Network: NetworkProtocol {
+    var baseURL: URL?
+    private let apiKey: String
     
-    enum Method: String {
-        case GET
-        case POST
+    init(baseURL: URL? = URL(string: "https://api.themoviedb.org/3/"), apiKey: String = "c72d42c8bdfaedc7f8495d267c31248d") {
+        self.baseURL = baseURL
+        self.apiKey = apiKey
     }
     
     func request(path: String, method: Method, data: Data?) -> URLRequest {
-        guard let url = getURL(path: path) else { fatalError("Error creating URLRequest") }
+        guard let url = buildURL(with: path) else { fatalError("Error creating URLRequest") }
         
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
@@ -34,7 +42,7 @@ struct Network {
         return request
     }
     
-    private func getURL(path: String) -> URL? {
+    private func buildURL(with path: String) -> URL? {
         guard let baseURL = baseURL else { return nil }
         
         guard var components = URLComponents(url: baseURL.appendingPathComponent(path), resolvingAgainstBaseURL: true)
