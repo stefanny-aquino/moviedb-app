@@ -7,21 +7,23 @@
 
 import Foundation
 
+
+enum Endpoint: String {
+    case tvShow = "tv"
+}
+
+
 struct Network {
     private let baseURL = URL(string: "https://api.themoviedb.org/3/")
     static let baseImageURL = URL(string: "https://image.tmdb.org/t/p/w500")
     private let apiKey = "c72d42c8bdfaedc7f8495d267c31248d"
-    
-    enum Endpoint: String {
-        case tv = "tv/popular"
-    }
     
     enum Method: String {
         case GET
         case POST
     }
     
-    func request(path: Endpoint, method: Method, data: Data?) -> URLRequest {
+    func request(path: String, method: Method, data: Data?) -> URLRequest {
         guard let url = getURL(path: path) else { fatalError("Error creating URLRequest") }
         
         var request = URLRequest(url: url)
@@ -32,10 +34,10 @@ struct Network {
         return request
     }
     
-    private func getURL(path: Endpoint) -> URL? {
+    private func getURL(path: String) -> URL? {
         guard let baseURL = baseURL else { return nil }
         
-        guard var components = URLComponents(url: baseURL.appendingPathComponent(path.rawValue), resolvingAgainstBaseURL: true)
+        guard var components = URLComponents(url: baseURL.appendingPathComponent(path), resolvingAgainstBaseURL: true)
         else { fatalError("Error creating URLComponents") }
         components.queryItems = [URLQueryItem(name: "api_key", value: apiKey)]
         

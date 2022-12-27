@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E1ABB67A295A71E6006B08EE /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ABB679295A71E6006B08EE /* DoubleExtension.swift */; };
+		E1ABB67D295A73D8006B08EE /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ABB67C295A73D8006B08EE /* StringExtension.swift */; };
 		E1C01E092959F55D00A86BF5 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C01E082959F55D00A86BF5 /* ImageView.swift */; };
 		E1C01E0B2959F5E500A86BF5 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C01E0A2959F5E500A86BF5 /* ImageModel.swift */; };
 		E1EFE2102956366700E155B2 /* MovieDBApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EFE20F2956366700E155B2 /* MovieDBApp.swift */; };
@@ -48,6 +50,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E1ABB679295A71E6006B08EE /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
+		E1ABB67C295A73D8006B08EE /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		E1C01E082959F55D00A86BF5 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		E1C01E0A2959F5E500A86BF5 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		E1EFE20C2956366700E155B2 /* MovieDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,9 +103,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E1ABB678295A71C4006B08EE /* Double */ = {
+			isa = PBXGroup;
+			children = (
+				E1ABB679295A71E6006B08EE /* DoubleExtension.swift */,
+			);
+			path = Double;
+			sourceTree = "<group>";
+		};
+		E1ABB67B295A73C6006B08EE /* String */ = {
+			isa = PBXGroup;
+			children = (
+				E1ABB67C295A73D8006B08EE /* StringExtension.swift */,
+			);
+			path = String;
+			sourceTree = "<group>";
+		};
 		E1C01E062959F54500A86BF5 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				E1ABB67B295A73C6006B08EE /* String */,
+				E1ABB678295A71C4006B08EE /* Double */,
 				E1C01E072959F54E00A86BF5 /* ImageView */,
 			);
 			path = Components;
@@ -413,6 +435,7 @@
 			files = (
 				E1C01E092959F55D00A86BF5 /* ImageView.swift in Sources */,
 				E1EFE25F2957F57900E155B2 /* TVShow.swift in Sources */,
+				E1ABB67A295A71E6006B08EE /* DoubleExtension.swift in Sources */,
 				E1EFE2612958008400E155B2 /* TVShowResponse.swift in Sources */,
 				E1EFE2122956366700E155B2 /* ContentView.swift in Sources */,
 				E1EFE24F2956612F00E155B2 /* HomeView.swift in Sources */,
@@ -424,6 +447,7 @@
 				E1EFE24229563D6000E155B2 /* LoginView.swift in Sources */,
 				E1EFE258295766AB00E155B2 /* HTTPClient.swift in Sources */,
 				E1EFE2442956419300E155B2 /* LoginViewModel.swift in Sources */,
+				E1ABB67D295A73D8006B08EE /* StringExtension.swift in Sources */,
 				E1EFE23C29563C4600E155B2 /* User.swift in Sources */,
 				E1EFE25529566A0F00E155B2 /* MovieViewCell.swift in Sources */,
 				E1C01E0B2959F5E500A86BF5 /* ImageModel.swift in Sources */,

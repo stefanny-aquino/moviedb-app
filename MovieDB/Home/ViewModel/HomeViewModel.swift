@@ -18,8 +18,8 @@ class HomeViewModel: ObservableObject {
         self.homeService = homeService
     }
     
-    func getTVShows() {
-        homeService.getTVShows(filterBy: .popular)
+    func getTVShows(_ filterType: FilterType) {
+        homeService.getTVShows(filterBy: filterType)
             .sink { completion in
             } receiveValue: { response in
                 self.tvShows = response.results
@@ -34,4 +34,17 @@ enum FilterType: String, CaseIterable {
     case topRated = "Top Rated"
     case onTV = "On TV"
     case airingToday = "Airing Today"
+    
+    func getPath() -> String {
+        switch self {
+        case .popular:
+            return "popular"
+        case .topRated:
+            return "top_rated"
+        case .onTV:
+            return "on_the_air"
+        case .airingToday:
+            return "airing_today"
+        }
+    }
 }

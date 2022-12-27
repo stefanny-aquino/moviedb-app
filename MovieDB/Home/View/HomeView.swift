@@ -42,6 +42,9 @@ struct HomeView: View {
                         Text(item.rawValue)
                     }
                 }
+                .onChange(of: selection, perform: { newValue in
+                    homeViewModel.getTVShows(newValue)
+                })
                 .pickerStyle(SegmentedPickerStyle())
                 .padding(.vertical, 15)
                 .padding(.horizontal, 25)
@@ -56,7 +59,7 @@ struct HomeView: View {
             }
         }
         .onAppear {
-            homeViewModel.getTVShows()
+            homeViewModel.getTVShows(.popular)
         }
     }
 }
