@@ -46,6 +46,7 @@
 		E1FA2040295BBEF30019C5F2 /* SeasonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FA203F295BBEF30019C5F2 /* SeasonView.swift */; };
 		E1FA2042295BC9170019C5F2 /* SeasonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FA2041295BC9170019C5F2 /* SeasonViewModel.swift */; };
 		E1FA2044295BC93A0019C5F2 /* SeasonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FA2043295BC93A0019C5F2 /* SeasonService.swift */; };
+		E1FA2046295CDE740019C5F2 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FA2045295CDE740019C5F2 /* ApiError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +109,7 @@
 		E1FA203F295BBEF30019C5F2 /* SeasonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonView.swift; sourceTree = "<group>"; };
 		E1FA2041295BC9170019C5F2 /* SeasonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonViewModel.swift; sourceTree = "<group>"; };
 		E1FA2043295BC93A0019C5F2 /* SeasonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonService.swift; sourceTree = "<group>"; };
+		E1FA2045295CDE740019C5F2 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -337,6 +339,7 @@
 			children = (
 				E1EFE257295766AB00E155B2 /* HTTPClient.swift */,
 				E1EFE25929576D7000E155B2 /* Network.swift */,
+				E1FA2045295CDE740019C5F2 /* ApiError.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -517,6 +520,7 @@
 				E1FA2042295BC9170019C5F2 /* SeasonViewModel.swift in Sources */,
 				E1EFE23C29563C4600E155B2 /* User.swift in Sources */,
 				E1D2F2E3295A1BAD00F5D8FF /* MovieDetailView.swift in Sources */,
+				E1FA2046295CDE740019C5F2 /* ApiError.swift in Sources */,
 				E1FA2033295B62060019C5F2 /* SceneDelegate.swift in Sources */,
 				E1FA203C295BA7A30019C5F2 /* CastViewCell.swift in Sources */,
 				E1ABB685295B52AA006B08EE /* MovieDetailViewModel.swift in Sources */,
