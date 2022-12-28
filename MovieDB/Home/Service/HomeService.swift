@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol HomeServiceProtocol {
-    func getTVShows(filterBy: FilterType) -> AnyPublisher<TVShowResponse, Error>
+    func getTVShows(filterBy: FilterType) -> AnyPublisher<TVShowResponse, ApiError>
 }
 
 class HomeService: HomeServiceProtocol {
@@ -20,7 +20,7 @@ class HomeService: HomeServiceProtocol {
         self.network = network
     }
     
-    func getTVShows(filterBy: FilterType) -> AnyPublisher<TVShowResponse, Error> {
+    func getTVShows(filterBy: FilterType) -> AnyPublisher<TVShowResponse, ApiError> {
         let fullPath = "\(Endpoint.tvShow.rawValue)/\(filterBy.getPath())"
         let request = network.request(path: fullPath, method: .GET, data: nil)
         return HTTPClient().fetch(request)

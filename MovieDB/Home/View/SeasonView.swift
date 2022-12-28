@@ -31,6 +31,9 @@ struct SeasonView: View {
             }
             .padding(35)
         }
+        .alert(isPresented: $seasonViewModel.errorAlert) {
+            Alert(title: Text("Error"), message: Text(seasonViewModel.errorMessage))
+        }
         .onAppear {
             seasonViewModel.getSeasonDetail()
         }

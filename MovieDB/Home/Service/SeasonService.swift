@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol SeasonServiceProtocol {
-    func getSeasonDetail(tvShowId: Int, seasonNumber: Int) -> AnyPublisher<Season, Error>
+    func getSeasonDetail(tvShowId: Int, seasonNumber: Int) -> AnyPublisher<Season, ApiError>
 }
 
 class SeasonService: SeasonServiceProtocol {
@@ -19,7 +19,7 @@ class SeasonService: SeasonServiceProtocol {
         self.network = network
     }
     
-    func getSeasonDetail(tvShowId: Int, seasonNumber: Int) -> AnyPublisher<Season, Error> {
+    func getSeasonDetail(tvShowId: Int, seasonNumber: Int) -> AnyPublisher<Season, ApiError> {
         let fullPath = "\(Endpoint.tvShow.rawValue)/\(tvShowId)/\(SeasonEndpoint.season)/\(seasonNumber)"
         let request = network.request(path: fullPath, method: .GET, data: nil)
         return HTTPClient().fetch(request)
