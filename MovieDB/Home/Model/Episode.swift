@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Episode: Codable {
+struct Episode: Codable, Hashable {
     let id: Int
     let name: String
     let posterPath: String?
@@ -15,6 +15,6 @@ struct Episode: Codable {
     enum CodingKeys: String, CodingKey {
         case id = "id"
         case name = "name"
-        case posterPath = "poster_path"
+        case posterPath = "still_path"
     }
 }

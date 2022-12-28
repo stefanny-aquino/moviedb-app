@@ -12,8 +12,8 @@ class MovieDetailViewModel: ObservableObject {
     private var disposables = Set<AnyCancellable>()
     var movieDetailService: MovieDetailService
     
-    @Published var tvShow: TVShow = TVShow(id: 1, name: "", description: "", imagePath: nil, backdropPath: nil, vote: 0.0, airDate: "", createdBy: [], seasons: [])
-    var lastSeason: Season = Season(id: 0, name: "", number: 0, posterPath: nil, airDate: "")
+    @Published var tvShow: TVShow = .stubTVShow()
+    var lastSeason: Season = .stubSeason()
     @Published var cast: [Person] = []
     
     init(movieDetailService: MovieDetailService = MovieDetailService()) {
@@ -38,6 +38,7 @@ class MovieDetailViewModel: ObservableObject {
             }
             .store(in: &disposables)
     }
+    
     private func getLastSeason(_ seasons: [Season]?) {
         guard let seasons = seasons, let season = seasons.sorted(by: { $0.number > $1.number }).first else { return }
         lastSeason = season
