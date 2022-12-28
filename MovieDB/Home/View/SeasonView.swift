@@ -17,11 +17,12 @@ struct SeasonView: View {
     
     var body: some View {
         ZStack {
-            Color("background.black")
+            Color.background
+                .edgesIgnoringSafeArea(.bottom)
             VStack(alignment: .leading) {
                 Text(seasonViewModel.season.name)
                     .bold()
-                    .foregroundColor(Color("primary.green"))
+                    .foregroundColor(Color.primary)
                 ScrollView(showsIndicators: false) {
                     ForEach(seasonViewModel.season.episodes ?? [], id: \.self) { item in
                         EpisodeView(episode: item)
@@ -29,6 +30,9 @@ struct SeasonView: View {
                 }
             }
             .padding(35)
+        }
+        .alert(isPresented: $seasonViewModel.errorAlert) {
+            Alert(title: Text("Error"), message: Text(seasonViewModel.errorMessage))
         }
         .onAppear {
             seasonViewModel.getSeasonDetail()
@@ -49,7 +53,7 @@ struct EpisodeView: View {
                     .foregroundColor(.white)
                     .frame(height: 40)
                     .frame(maxWidth: .infinity)
-                .background(Color("black"))
+                    .background(Color.black)
             }
             .padding(.top, 90)
         }

@@ -10,10 +10,12 @@ import Combine
 
 class SeasonViewModel: ObservableObject {
     private var disposables = Set<AnyCancellable>()
+    @Published var season: Season = .stubSeason()
+    @Published var errorAlert = false
+    var errorMessage: String = ""
     var seasonService: SeasonService
     var tvShowId: Int
     var seasonNumber: Int
-    @Published var season: Season = .stubSeason()
     
     init(seasonService: SeasonService = SeasonService(), tvShowId: Int, seasonNumber: Int) {
         self.seasonService = seasonService
@@ -23,7 +25,14 @@ class SeasonViewModel: ObservableObject {
     
     func getSeasonDetail() {
         seasonService.getSeasonDetail(tvShowId: tvShowId, seasonNumber: seasonNumber)
-            .sink { completion in
+            .sink { [weak self] completion in
+                switch completion {
+                case .failure(let error):
+                    self?.errorMessage = error.statusMessage
+                    self?.errorAlert = true
+                case .finished:
+                    break
+                }
             } receiveValue: { response in
                 self.season = response
             }

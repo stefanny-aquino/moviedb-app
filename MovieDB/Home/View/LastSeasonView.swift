@@ -13,7 +13,7 @@ class LastSeasonView: UIView {
     var lastSeason: Season? {
         didSet {
             titleLabel.text = lastSeason?.name
-            airDateLabel.text = lastSeason?.airDate.formatDate()
+            airDateLabel.text = lastSeason?.airDate?.formatDate()
         }
     }
     var titleLabel: UILabel = UILabel()

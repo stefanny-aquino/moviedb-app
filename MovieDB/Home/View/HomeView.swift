@@ -12,10 +12,6 @@ import Combine
 struct HomeView: View {
     @ObservedObject var homeViewModel: HomeViewModel
     
-    @State var selection: FilterType = .popular
-    @State var showDetailMovie = false
-    @State var selectedMovie = 0
-    
     init(homeViewModel: HomeViewModel = HomeViewModel()) {
         self.homeViewModel = homeViewModel
         UISegmentedControl.appearance().selectedSegmentTintColor = .darkGray
@@ -24,23 +20,23 @@ struct HomeView: View {
     
     var body: some View {
         VStack {
-            NavigationLink(destination: MovieDetailView(tvShowId: selectedMovie), isActive: $showDetailMovie, label: {
+            NavigationLink(destination: MovieDetailView(tvShowId: homeViewModel.selectedMovie), isActive: $homeViewModel.showDetailMovie, label: {
                 EmptyView()
             })
             
             ZStack {
-                Color("header")
+                Color.header
                     .edgesIgnoringSafeArea(.top)
-                Color("background.black")
+                Color.background
                     .edgesIgnoringSafeArea(.bottom)
                 VStack {
                     HeaderView()
-                    Picker("Title", selection: $selection) {
+                    Picker("Title", selection: $homeViewModel.selection) {
                         ForEach(FilterType.allCases, id: \.self) { item in
                             Text(item.rawValue)
                         }
                     }
-                    .onChange(of: selection, perform: { newValue in
+                    .onChange(of: homeViewModel.selection, perform: { newValue in
                         homeViewModel.getTVShows(newValue)
                     })
                     .pickerStyle(SegmentedPickerStyle())
@@ -50,16 +46,19 @@ struct HomeView: View {
                         LazyVGrid(columns: [.init(), .init()], spacing: 10) {
                             ForEach(homeViewModel.tvShows, id: \.self) { item in
                                 MovieViewCell(tvShow: item) {
-                                    selectedMovie = item.id
-                                    showDetailMovie.toggle()
+                                    homeViewModel.selectedMovie = item.id
+                                    homeViewModel.showDetailMovie.toggle()
                                 }
                             }
                         }.padding(10)
                     }
                 }
             }
+            .alert(isPresented: $homeViewModel.errorAlert) {
+                Alert(title: Text("Error"), message: Text(homeViewModel.errorMessage))
+            }
             .onAppear {
-                homeViewModel.getTVShows(.popular)
+                homeViewModel.getTVShows(homeViewModel.selection)
             }
         }
     }
@@ -75,7 +74,7 @@ struct HeaderView: View {
             .frame(maxWidth: .infinity)
             .frame(height: 45)
         }
-        .background(Color("header"))
+        .background(Color.header)
     }
 }
 

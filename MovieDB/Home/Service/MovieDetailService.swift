@@ -8,7 +8,12 @@
 import Foundation
 import Combine
 
-class MovieDetailService {
+protocol MovieDetailServiceProtocol {
+    func getMovieDetail(id: Int) -> AnyPublisher<TVShow, ApiError>
+    func getMovieCredits(id: Int) -> AnyPublisher<TVShowCreditsResponse, ApiError>
+}
+
+class MovieDetailService: MovieDetailServiceProtocol {
     
     let network: NetworkProtocol
     
@@ -16,13 +21,13 @@ class MovieDetailService {
         self.network = network
     }
     
-    func getMovieDetail(id: Int) -> AnyPublisher<TVShow, Error> {
+    func getMovieDetail(id: Int) -> AnyPublisher<TVShow, ApiError> {
         let fullPath = "\(Endpoint.tvShow.rawValue)/\(id)"
         let request = network.request(path: fullPath, method: .GET, data: nil)
         return HTTPClient().fetch(request)
     }
     
-    func getMovieCredits(id: Int) -> AnyPublisher<TVShowCreditsResponse, Error> {
+    func getMovieCredits(id: Int) -> AnyPublisher<TVShowCreditsResponse, ApiError> {
         let fullPath = "\(Endpoint.tvShow.rawValue)/\(id)/\(MovieDetailEndpoint.credits)"
         let request = network.request(path: fullPath, method: .GET, data: nil)
         return HTTPClient().fetch(request)

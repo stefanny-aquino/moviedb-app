@@ -12,7 +12,7 @@ struct Season: Codable, Hashable {
     let name: String
     let number: Int
     let posterPath: String?
-    let airDate: String
+    let airDate: String?
     var episodes: [Episode]?
     
     enum CodingKeys: String, CodingKey {
