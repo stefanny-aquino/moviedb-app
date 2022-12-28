@@ -10,10 +10,10 @@ import Combine
 
 class SeasonViewModel: ObservableObject {
     private var disposables = Set<AnyCancellable>()
+    @Published var season: Season = .stubSeason()
     var seasonService: SeasonService
     var tvShowId: Int
     var seasonNumber: Int
-    @Published var season: Season = .stubSeason()
     
     init(seasonService: SeasonService = SeasonService(), tvShowId: Int, seasonNumber: Int) {
         self.seasonService = seasonService

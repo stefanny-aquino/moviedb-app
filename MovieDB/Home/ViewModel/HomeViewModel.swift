@@ -13,7 +13,9 @@ class HomeViewModel: ObservableObject {
     var homeService: HomeService
     
     @Published var tvShows: [TVShow] = []
-    @Published var selectedMovie: Int = 0
+    @Published var selection: FilterType = .popular
+    @Published var selectedMovie = 0
+    @Published var showDetailMovie = false
     
     init(homeService: HomeService = HomeService()) {
         self.homeService = homeService

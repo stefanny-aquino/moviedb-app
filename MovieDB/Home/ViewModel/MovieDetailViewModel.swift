@@ -13,8 +13,8 @@ class MovieDetailViewModel: ObservableObject {
     var movieDetailService: MovieDetailService
     
     @Published var tvShow: TVShow = .stubTVShow()
-    var lastSeason: Season = .stubSeason()
     @Published var cast: [Person] = []
+    var lastSeason: Season = .stubSeason()
     
     init(movieDetailService: MovieDetailService = MovieDetailService()) {
         self.movieDetailService = movieDetailService
