@@ -8,12 +8,11 @@
 import Foundation
 import Combine
 
-struct HTTPResponse<T> {
-    let data: T
-    let response: URLResponse
+protocol HTTPClientProtocol {
+    func fetch<T: Decodable>(_ request: URLRequest) -> AnyPublisher<T, ApiError>
 }
 
-struct HTTPClient {
+struct HTTPClient: HTTPClientProtocol {
     private let session = URLSession.shared
     
     func fetch<T: Decodable>(_ request: URLRequest) -> AnyPublisher<T, ApiError> {
