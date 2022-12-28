@@ -18,6 +18,7 @@ struct SeasonView: View {
     var body: some View {
         ZStack {
             Color("background.black")
+                .edgesIgnoringSafeArea(.bottom)
             VStack(alignment: .leading) {
                 Text(seasonViewModel.season.name)
                     .bold()
