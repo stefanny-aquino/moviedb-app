@@ -47,6 +47,7 @@
 		E1FA2042295BC9170019C5F2 /* SeasonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FA2041295BC9170019C5F2 /* SeasonViewModel.swift */; };
 		E1FA2044295BC93A0019C5F2 /* SeasonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FA2043295BC93A0019C5F2 /* SeasonService.swift */; };
 		E1FA2046295CDE740019C5F2 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FA2045295CDE740019C5F2 /* ApiError.swift */; };
+		E1FA204B295CE70B0019C5F2 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FA204A295CE70B0019C5F2 /* ColorExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +111,7 @@
 		E1FA2041295BC9170019C5F2 /* SeasonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonViewModel.swift; sourceTree = "<group>"; };
 		E1FA2043295BC93A0019C5F2 /* SeasonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonService.swift; sourceTree = "<group>"; };
 		E1FA2045295CDE740019C5F2 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
+		E1FA204A295CE70B0019C5F2 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,27 +139,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E1ABB678295A71C4006B08EE /* Double */ = {
-			isa = PBXGroup;
-			children = (
-				E1ABB679295A71E6006B08EE /* DoubleExtension.swift */,
-			);
-			path = Double;
-			sourceTree = "<group>";
-		};
-		E1ABB67B295A73C6006B08EE /* String */ = {
-			isa = PBXGroup;
-			children = (
-				E1ABB67C295A73D8006B08EE /* StringExtension.swift */,
-			);
-			path = String;
-			sourceTree = "<group>";
-		};
 		E1C01E062959F54500A86BF5 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				E1ABB67B295A73C6006B08EE /* String */,
-				E1ABB678295A71C4006B08EE /* Double */,
 				E1C01E072959F54E00A86BF5 /* ImageView */,
 			);
 			path = Components;
@@ -280,6 +264,7 @@
 		E1EFE24929565AD400E155B2 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				E1FA204C295CE75D0019C5F2 /* Extensions */,
 				E1C01E062959F54500A86BF5 /* Components */,
 				E1EFE246295659E300E155B2 /* Styles */,
 				E1FA2039295BA2640019C5F2 /* Constants.swift */,
@@ -360,6 +345,16 @@
 				E1FA2035295B67690019C5F2 /* Helper.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		E1FA204C295CE75D0019C5F2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E1ABB679295A71E6006B08EE /* DoubleExtension.swift */,
+				E1ABB67C295A73D8006B08EE /* StringExtension.swift */,
+				E1FA204A295CE70B0019C5F2 /* ColorExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -523,6 +518,7 @@
 				E1FA2046295CDE740019C5F2 /* ApiError.swift in Sources */,
 				E1FA2033295B62060019C5F2 /* SceneDelegate.swift in Sources */,
 				E1FA203C295BA7A30019C5F2 /* CastViewCell.swift in Sources */,
+				E1FA204B295CE70B0019C5F2 /* ColorExtension.swift in Sources */,
 				E1ABB685295B52AA006B08EE /* MovieDetailViewModel.swift in Sources */,
 				E1EFE25529566A0F00E155B2 /* MovieViewCell.swift in Sources */,
 				E1ABB681295AA60E006B08EE /* Season.swift in Sources */,

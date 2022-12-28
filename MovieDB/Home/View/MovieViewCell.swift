@@ -59,10 +59,10 @@ struct MovieViewCell: View {
             }
             .padding(10)
             .padding(.bottom, 5)
-            .foregroundColor(Color("primary.green"))
+            .foregroundColor(Color.primary)
         }
         .frame(height: 130)
-        .background(Color("black"))
+        .background(Color.black)
     }
 }
 

@@ -25,9 +25,9 @@ struct HomeView: View {
             })
             
             ZStack {
-                Color("header")
+                Color.header
                     .edgesIgnoringSafeArea(.top)
-                Color("background.black")
+                Color.background
                     .edgesIgnoringSafeArea(.bottom)
                 VStack {
                     HeaderView()
@@ -71,7 +71,7 @@ struct HeaderView: View {
             .frame(maxWidth: .infinity)
             .frame(height: 45)
         }
-        .background(Color("header"))
+        .background(Color.header)
     }
 }
 

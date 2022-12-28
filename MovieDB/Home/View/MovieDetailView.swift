@@ -20,7 +20,7 @@ struct MovieDetailView: View {
     
     var body: some View {
         ZStack {
-            Color("background.black")
+            Color.background
             VStack{
                 ImageView(url: Helper.getImageUrl(viewModel.tvShow.backdropPath))
                     .frame(height: 210)
@@ -29,7 +29,7 @@ struct MovieDetailView: View {
             VStack {
                 ZStack {
                     Rectangle()
-                        .foregroundColor(Color("detail.black"))
+                        .foregroundColor(Color.detail)
                         .cornerRadius(25)
                     VStack(spacing: 0) {
                         HStack {
@@ -89,7 +89,7 @@ struct MovieDetailView: View {
                     .resizable()
                     .frame(width: 20, height: 20)
                     .padding(.trailing, 20)
-                    .foregroundColor(Color("primary.green"))
+                    .foregroundColor(Color.primary)
             }
             Text(viewModel.tvShow.description)
                 .font(.footnote)
@@ -138,7 +138,7 @@ struct TitleView: View {
         Text(text)
             .bold()
             .font(.headline)
-            .foregroundColor(Color("primary.green"))
+            .foregroundColor(Color.primary)
     }
 }
 
