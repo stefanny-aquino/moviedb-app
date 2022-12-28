@@ -13,16 +13,19 @@ protocol SeasonServiceProtocol {
 }
 
 class SeasonService: SeasonServiceProtocol {
-    let network: NetworkProtocol
     
-    init(network: NetworkProtocol = Network()) {
+    let network: NetworkProtocol
+    let httpClient: HTTPClientProtocol
+    
+    init(network: NetworkProtocol = Network(), httpClient: HTTPClientProtocol = HTTPClient()) {
         self.network = network
+        self.httpClient = httpClient
     }
     
     func getSeasonDetail(tvShowId: Int, seasonNumber: Int) -> AnyPublisher<Season, ApiError> {
         let fullPath = "\(Endpoint.tvShow.rawValue)/\(tvShowId)/\(SeasonEndpoint.season)/\(seasonNumber)"
         let request = network.request(path: fullPath, method: .GET, data: nil)
-        return HTTPClient().fetch(request)
+        return httpClient.fetch(request)
     }
 }
 

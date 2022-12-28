@@ -16,21 +16,23 @@ protocol MovieDetailServiceProtocol {
 class MovieDetailService: MovieDetailServiceProtocol {
     
     let network: NetworkProtocol
+    let httpClient: HTTPClientProtocol
     
-    init(network: NetworkProtocol = Network()) {
+    init(network: NetworkProtocol = Network(), httpClient: HTTPClientProtocol = HTTPClient()) {
         self.network = network
+        self.httpClient = httpClient
     }
     
     func getMovieDetail(id: Int) -> AnyPublisher<TVShow, ApiError> {
         let fullPath = "\(Endpoint.tvShow.rawValue)/\(id)"
         let request = network.request(path: fullPath, method: .GET, data: nil)
-        return HTTPClient().fetch(request)
+        return httpClient.fetch(request)
     }
     
     func getMovieCredits(id: Int) -> AnyPublisher<TVShowCreditsResponse, ApiError> {
         let fullPath = "\(Endpoint.tvShow.rawValue)/\(id)/\(MovieDetailEndpoint.credits)"
         let request = network.request(path: fullPath, method: .GET, data: nil)
-        return HTTPClient().fetch(request)
+        return httpClient.fetch(request)
     }
 }
 
