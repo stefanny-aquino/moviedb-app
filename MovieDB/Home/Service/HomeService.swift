@@ -8,7 +8,11 @@
 import Foundation
 import Combine
 
-class HomeService {
+protocol HomeServiceProtocol {
+    func getTVShows(filterBy: FilterType) -> AnyPublisher<TVShowResponse, Error>
+}
+
+class HomeService: HomeServiceProtocol {
     
     let network: NetworkProtocol
     

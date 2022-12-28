@@ -8,7 +8,12 @@
 import Foundation
 import Combine
 
-class MovieDetailService {
+protocol MovieDetailServiceProtocol {
+    func getMovieDetail(id: Int) -> AnyPublisher<TVShow, Error>
+    func getMovieCredits(id: Int) -> AnyPublisher<TVShowCreditsResponse, Error>
+}
+
+class MovieDetailService: MovieDetailServiceProtocol {
     
     let network: NetworkProtocol
     

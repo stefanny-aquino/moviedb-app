@@ -8,7 +8,11 @@
 import Foundation
 import Combine
 
-class SeasonService {
+protocol SeasonServiceProtocol {
+    func getSeasonDetail(tvShowId: Int, seasonNumber: Int) -> AnyPublisher<Season, Error>
+}
+
+class SeasonService: SeasonServiceProtocol {
     let network: NetworkProtocol
     
     init(network: NetworkProtocol = Network()) {
