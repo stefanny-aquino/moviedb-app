@@ -11,7 +11,7 @@ struct ApiError: Error, Codable {
     let statusCode: Int
     let statusMessage: String
     
-    init(statusCode: Int = 500, statusMessage: String = "Error") {
+    init(statusCode: Int = 500, statusMessage: String = "Unexpected error") {
         self.statusCode = statusCode
         self.statusMessage = statusMessage
     }

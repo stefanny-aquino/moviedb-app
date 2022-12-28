@@ -14,6 +14,8 @@ class MovieDetailViewModel: ObservableObject {
     
     @Published var tvShow: TVShow = .stubTVShow()
     @Published var cast: [Person] = []
+    @Published var errorAlert = false
+    var errorMessage: String = ""
     var lastSeason: Season = .stubSeason()
     
     init(movieDetailService: MovieDetailService = MovieDetailService()) {
@@ -22,7 +24,14 @@ class MovieDetailViewModel: ObservableObject {
     
     func getMovie(_ id: Int) {
         movieDetailService.getMovieDetail(id: id)
-            .sink { completion in
+            .sink { [weak self] completion in
+                switch completion {
+                case .failure(let error):
+                    self?.errorMessage = error.statusMessage
+                    self?.errorAlert = true
+                case .finished:
+                    break
+                }
             } receiveValue: { response in
                 self.tvShow = response
                 self.getLastSeason(response.seasons)

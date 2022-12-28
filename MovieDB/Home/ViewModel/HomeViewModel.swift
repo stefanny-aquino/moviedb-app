@@ -16,6 +16,8 @@ class HomeViewModel: ObservableObject {
     @Published var selection: FilterType = .popular
     @Published var selectedMovie = 0
     @Published var showDetailMovie = false
+    @Published var errorAlert = false
+    var errorMessage: String = ""
     
     init(homeService: HomeService = HomeService()) {
         self.homeService = homeService
@@ -23,7 +25,14 @@ class HomeViewModel: ObservableObject {
     
     func getTVShows(_ filterType: FilterType) {
         homeService.getTVShows(filterBy: filterType)
-            .sink { completion in
+            .sink { [weak self] completion in
+                switch completion {
+                case .failure(let error):
+                    self?.errorMessage = error.statusMessage
+                    self?.errorAlert = true
+                case .finished:
+                    break
+                }
             } receiveValue: { response in
                 self.tvShows = response.results
             }

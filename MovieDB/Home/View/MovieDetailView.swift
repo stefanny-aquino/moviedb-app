@@ -63,6 +63,9 @@ struct MovieDetailView: View {
             .padding(.top, 180)
         }
         .edgesIgnoringSafeArea(.vertical)
+        .alert(isPresented: $viewModel.errorAlert) {
+            Alert(title: Text("Error"), message: Text(viewModel.errorMessage))
+        }
         .onAppear {
             viewModel.getMovie(tvShowId)
             viewModel.getMovieCredits(tvShowId)

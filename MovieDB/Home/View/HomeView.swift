@@ -54,6 +54,9 @@ struct HomeView: View {
                     }
                 }
             }
+            .alert(isPresented: $homeViewModel.errorAlert) {
+                Alert(title: Text("Error"), message: Text(homeViewModel.errorMessage))
+            }
             .onAppear {
                 homeViewModel.getTVShows(homeViewModel.selection)
             }
