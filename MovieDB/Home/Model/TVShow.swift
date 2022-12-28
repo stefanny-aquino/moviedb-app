@@ -30,3 +30,9 @@ struct TVShow: Codable, Hashable {
         case seasons = "seasons"
     }
 }
+
+extension TVShow {
+    static func stubTVShow() -> TVShow {
+        TVShow(id: 1, name: "", description: "", imagePath: nil, backdropPath: nil, vote: 0.0, airDate: "", createdBy: [], seasons: [])
+    }
+}

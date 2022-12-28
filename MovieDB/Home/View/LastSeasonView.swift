@@ -20,6 +20,8 @@ class LastSeasonView: UIView {
     private var airDateLabel: UILabel = UILabel()
     private var viewAllButton: UIButton = UIButton()
     
+    var onTapViewAll: (() -> Void)?
+    
     init() {
         super.init(frame: .zero)
         
@@ -32,11 +34,11 @@ class LastSeasonView: UIView {
         airDateLabel.textColor = UIColor(named: "primary.green")
         
         viewAllButton.translatesAutoresizingMaskIntoConstraints = false
-        viewAllButton.setTitle("View All Seasons", for: .normal)
+        viewAllButton.setTitle("View All Episodes", for: .normal)
         viewAllButton.backgroundColor = UIColor(named: "primary.green")
         viewAllButton.titleLabel?.font =  UIFont.preferredFont(forTextStyle: .caption2)
         viewAllButton.layer.cornerRadius = 5
-        
+        viewAllButton.addTarget(self, action: #selector(viewAllEpisodes), for: .touchUpInside)
         addSubview(titleLabel)
         addSubview(airDateLabel)
         addSubview(viewAllButton)
@@ -47,6 +49,10 @@ class LastSeasonView: UIView {
             viewAllButton.heightAnchor.constraint(equalToConstant: 30)
         ])
         
+    }
+    
+    @objc func viewAllEpisodes() {
+        self.onTapViewAll?()
     }
     
     required init?(coder: NSCoder) {

@@ -11,6 +11,7 @@ import SwiftUI
 struct MovieDetailView: View {
     @ObservedObject var viewModel: MovieDetailViewModel
     var tvShowId: Int
+    @State var showSeasonSheet = false
     
     init(movieDetailViewModel: MovieDetailViewModel = MovieDetailViewModel(), tvShowId: Int) {
         self.viewModel = movieDetailViewModel
@@ -70,7 +71,7 @@ struct MovieDetailView: View {
                                     ImageView(url: Helper.getImageUrl(viewModel.lastSeason.posterPath))
                                         .frame(width: 130, height: 180)
                                     VStack {
-                                        LastSeasonViewRepresentable(lastSeason: $viewModel.lastSeason)
+                                        LastSeasonViewRepresentable(lastSeason: $viewModel.lastSeason, showSeasonSheet: $showSeasonSheet)
                                             .frame(height: 100)
                                     }
                                     .padding(.leading, 30)
@@ -103,6 +104,9 @@ struct MovieDetailView: View {
             viewModel.getMovie(tvShowId)
             viewModel.getMovieCredits(tvShowId)
         }
+        .sheet(isPresented: $showSeasonSheet) {
+            SeasonView(tvShowId: tvShowId, seasonNumber: viewModel.lastSeason.number)
+        }
     }
     
     func getCrew(_ createdBy: [Person]?) -> String {
@@ -126,9 +130,14 @@ struct TitleView: View {
 struct LastSeasonViewRepresentable: UIViewRepresentable {
     typealias UIViewType = LastSeasonView
     @Binding var lastSeason: Season
-
+    @Binding var showSeasonSheet: Bool
+    
     func makeUIView(context: Context) -> LastSeasonView {
-        return LastSeasonView()
+        let lastSeasonView = LastSeasonView()
+        lastSeasonView.onTapViewAll = {
+            showSeasonSheet.toggle()
+        }
+        return lastSeasonView
     }
 
     func updateUIView(_ uiView: LastSeasonView, context: Context) {

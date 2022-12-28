@@ -43,6 +43,9 @@
 		E1FA203A295BA2640019C5F2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FA2039295BA2640019C5F2 /* Constants.swift */; };
 		E1FA203C295BA7A30019C5F2 /* CastViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FA203B295BA7A30019C5F2 /* CastViewCell.swift */; };
 		E1FA203E295BAA0D0019C5F2 /* TVShowCreditsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FA203D295BAA0D0019C5F2 /* TVShowCreditsResponse.swift */; };
+		E1FA2040295BBEF30019C5F2 /* SeasonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FA203F295BBEF30019C5F2 /* SeasonView.swift */; };
+		E1FA2042295BC9170019C5F2 /* SeasonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FA2041295BC9170019C5F2 /* SeasonViewModel.swift */; };
+		E1FA2044295BC93A0019C5F2 /* SeasonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FA2043295BC93A0019C5F2 /* SeasonService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +105,9 @@
 		E1FA2039295BA2640019C5F2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E1FA203B295BA7A30019C5F2 /* CastViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastViewCell.swift; sourceTree = "<group>"; };
 		E1FA203D295BAA0D0019C5F2 /* TVShowCreditsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowCreditsResponse.swift; sourceTree = "<group>"; };
+		E1FA203F295BBEF30019C5F2 /* SeasonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonView.swift; sourceTree = "<group>"; };
+		E1FA2041295BC9170019C5F2 /* SeasonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonViewModel.swift; sourceTree = "<group>"; };
+		E1FA2043295BC93A0019C5F2 /* SeasonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -311,6 +317,7 @@
 				E1D2F2E2295A1BAD00F5D8FF /* MovieDetailView.swift */,
 				E1FA2037295B8BC80019C5F2 /* LastSeasonView.swift */,
 				E1FA203B295BA7A30019C5F2 /* CastViewCell.swift */,
+				E1FA203F295BBEF30019C5F2 /* SeasonView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -320,6 +327,7 @@
 			children = (
 				E1EFE2502956655800E155B2 /* HomeViewModel.swift */,
 				E1ABB684295B52AA006B08EE /* MovieDetailViewModel.swift */,
+				E1FA2041295BC9170019C5F2 /* SeasonViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -338,6 +346,7 @@
 			children = (
 				E1EFE25C2957784F00E155B2 /* HomeService.swift */,
 				E1ABB686295B55EE006B08EE /* MovieDetailService.swift */,
+				E1FA2043295BC93A0019C5F2 /* SeasonService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -490,11 +499,13 @@
 				E1ABB683295AA616006B08EE /* Episode.swift in Sources */,
 				E1EFE24F2956612F00E155B2 /* HomeView.swift in Sources */,
 				E1ABB687295B55EE006B08EE /* MovieDetailService.swift in Sources */,
+				E1FA2044295BC93A0019C5F2 /* SeasonService.swift in Sources */,
 				E1EFE2102956366700E155B2 /* MovieDBApp.swift in Sources */,
 				E1EFE2512956655800E155B2 /* HomeViewModel.swift in Sources */,
 				E1FA203E295BAA0D0019C5F2 /* TVShowCreditsResponse.swift in Sources */,
 				E1EFE248295659FA00E155B2 /* CustomTextFieldStyle.swift in Sources */,
 				E1EFE25A29576D7000E155B2 /* Network.swift in Sources */,
+				E1FA2040295BBEF30019C5F2 /* SeasonView.swift in Sources */,
 				E1ABB67F295A9D0D006B08EE /* Person.swift in Sources */,
 				E1FA2031295B61D10019C5F2 /* AppDelegate.swift in Sources */,
 				E1FA2038295B8BC80019C5F2 /* LastSeasonView.swift in Sources */,
@@ -503,6 +514,7 @@
 				E1EFE258295766AB00E155B2 /* HTTPClient.swift in Sources */,
 				E1EFE2442956419300E155B2 /* LoginViewModel.swift in Sources */,
 				E1ABB67D295A73D8006B08EE /* StringExtension.swift in Sources */,
+				E1FA2042295BC9170019C5F2 /* SeasonViewModel.swift in Sources */,
 				E1EFE23C29563C4600E155B2 /* User.swift in Sources */,
 				E1D2F2E3295A1BAD00F5D8FF /* MovieDetailView.swift in Sources */,
 				E1FA2033295B62060019C5F2 /* SceneDelegate.swift in Sources */,
