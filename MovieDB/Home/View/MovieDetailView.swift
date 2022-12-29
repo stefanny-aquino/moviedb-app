@@ -9,15 +9,18 @@ import Foundation
 import SwiftUI
 
 struct MovieDetailView: View {
+    // MARK: - Variables
     @ObservedObject var viewModel: MovieDetailViewModel
     @State var showSeasonSheet = false
     var tvShowId: Int
     
+    // MARK: - Initializer
     init(movieDetailViewModel: MovieDetailViewModel = MovieDetailViewModel(), tvShowId: Int) {
         self.viewModel = movieDetailViewModel
         self.tvShowId = tvShowId
     }
     
+    // MARK: - Body
     var body: some View {
         ZStack {
             Color.background

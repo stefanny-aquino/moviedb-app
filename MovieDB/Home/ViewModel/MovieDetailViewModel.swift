@@ -9,19 +9,21 @@ import Foundation
 import Combine
 
 class MovieDetailViewModel: ObservableObject {
-    private var disposables = Set<AnyCancellable>()
-    var movieDetailService: MovieDetailService
-    
+    // MARK: - Variables
     @Published var tvShow: TVShow = .stubTVShow()
     @Published var cast: [Person] = []
     @Published var errorAlert = false
     var errorMessage: String = ""
     var lastSeason: Season = .stubSeason()
-    
+    var movieDetailService: MovieDetailService
+    private var disposables = Set<AnyCancellable>()
+
+    // MARK: - Initializer
     init(movieDetailService: MovieDetailService = MovieDetailService()) {
         self.movieDetailService = movieDetailService
     }
     
+    // MARK: - Functions
     func getMovie(_ id: Int) {
         movieDetailService.getMovieDetail(id: id)
             .sink { [weak self] completion in

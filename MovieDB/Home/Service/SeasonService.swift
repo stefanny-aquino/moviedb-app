@@ -24,7 +24,7 @@ class SeasonService: SeasonServiceProtocol {
     
     func getSeasonDetail(tvShowId: Int, seasonNumber: Int) -> AnyPublisher<Season, ApiError> {
         let fullPath = "\(Endpoint.tvShow.rawValue)/\(tvShowId)/\(SeasonEndpoint.season)/\(seasonNumber)"
-        let request = network.request(path: fullPath, method: .GET, data: nil)
+        let request = network.request(path: fullPath, method: .GET, parameters: nil)
         return httpClient.fetch(request)
     }
 }

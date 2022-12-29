@@ -9,9 +9,10 @@ import Foundation
 import SwiftUI
 
 struct CastViewCell: View {
-    
+    // MARK: - Variables
     var cast: Person
     
+    // MARK: - Body
     var body: some View {
         VStack(spacing: 0) {
             ImageView(url: Helper.getImageUrl(cast.profilePath))

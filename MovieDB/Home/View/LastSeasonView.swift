@@ -9,19 +9,19 @@ import Foundation
 import UIKit
 
 class LastSeasonView: UIView {
-    
+    // MARK: - Variables
+    var titleLabel: UILabel = UILabel()
     var lastSeason: Season? {
         didSet {
             titleLabel.text = lastSeason?.name
             airDateLabel.text = lastSeason?.airDate?.formatDate()
         }
     }
-    var titleLabel: UILabel = UILabel()
+    var onTapViewAll: (() -> Void)?
     private var airDateLabel: UILabel = UILabel()
     private var viewAllButton: UIButton = UIButton()
     
-    var onTapViewAll: (() -> Void)?
-    
+    // MARK: - Initializer
     init() {
         super.init(frame: .zero)
         
@@ -30,8 +30,8 @@ class LastSeasonView: UIView {
         titleLabel.textColor = .white
         
         airDateLabel.translatesAutoresizingMaskIntoConstraints = false
-        airDateLabel.font = UIFont.preferredFont(forTextStyle: .caption2)
         airDateLabel.textColor = UIColor(named: "primary.green")
+        airDateLabel.font = UIFont.preferredFont(forTextStyle: .caption2)
         
         viewAllButton.translatesAutoresizingMaskIntoConstraints = false
         viewAllButton.setTitle("View All Episodes", for: .normal)
@@ -51,11 +51,12 @@ class LastSeasonView: UIView {
         
     }
     
-    @objc func viewAllEpisodes() {
-        self.onTapViewAll?()
-    }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Functions
+    @objc func viewAllEpisodes() {
+        self.onTapViewAll?()
     }
 }
