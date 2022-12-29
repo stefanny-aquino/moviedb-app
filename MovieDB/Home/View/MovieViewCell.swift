@@ -9,14 +9,14 @@ import Foundation
 import SwiftUI
 
 struct MovieViewCell: View {
-    
+    // MARK: - Variables
     var tvShow: TVShow
     let selectedMovie : () -> Void
-    
     var description: String {
         tvShow.description.isEmpty ? "No description found" : tvShow.description
     }
     
+    // MARK: - Body
     var body: some View {
         VStack(spacing: 0) {
             ImageView(url: Helper.getImageUrl(tvShow.imagePath))

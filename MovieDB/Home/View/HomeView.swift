@@ -10,16 +10,18 @@ import SwiftUI
 import Combine
 
 struct HomeView: View {
+    // MARK: - Variables
     @ObservedObject var homeViewModel: HomeViewModel
-    
     @State var didFirstLoad = false
     
+    // MARK: - Initializer
     init(homeViewModel: HomeViewModel = HomeViewModel()) {
         self.homeViewModel = homeViewModel
         UISegmentedControl.appearance().selectedSegmentTintColor = .darkGray
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
     }
     
+    // MARK: - Body
     var body: some View {
         VStack {
             NavigationLink(destination: MovieDetailView(tvShowId: homeViewModel.selectedMovie), isActive: $homeViewModel.showDetailMovie, label: {

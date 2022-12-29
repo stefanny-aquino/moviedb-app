@@ -9,9 +9,7 @@ import Foundation
 import Combine
 
 class HomeViewModel: ObservableObject {
-    private var disposables = Set<AnyCancellable>()
-    var homeService: HomeService
-    
+    // MARK: - Variables
     @Published var tvShows: [TVShow] = []
     @Published var selection: FilterType = .popular
     @Published var selectedMovie = 0
@@ -20,11 +18,15 @@ class HomeViewModel: ObservableObject {
     var errorMessage: String = ""
     var totalPages = 0
     var page : Int = 1
-    
+    var homeService: HomeService
+    private var disposables = Set<AnyCancellable>()
+
+    // MARK: - Initializer
     init(homeService: HomeService = HomeService()) {
         self.homeService = homeService
     }
     
+    // MARK: - Functions
     func loadMoreTVShows(item: TVShow) {
         let index = self.tvShows.index(self.tvShows.endIndex, offsetBy: -1)
         if tvShows[index].id == item.id,

@@ -9,12 +9,15 @@ import Foundation
 import SwiftUI
 
 struct SeasonView: View {
+    // MARK: - Variables
     @ObservedObject var seasonViewModel: SeasonViewModel
     
+    // MARK: - Initializer
     init(tvShowId: Int, seasonNumber: Int) {
         self.seasonViewModel = SeasonViewModel(tvShowId: tvShowId, seasonNumber: seasonNumber)
     }
     
+    // MARK: - Body
     var body: some View {
         ZStack {
             Color.background
