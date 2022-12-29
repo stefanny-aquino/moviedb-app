@@ -25,13 +25,13 @@ class MovieDetailService: MovieDetailServiceProtocol {
     
     func getMovieDetail(id: Int) -> AnyPublisher<TVShow, ApiError> {
         let fullPath = "\(Endpoint.tvShow.rawValue)/\(id)"
-        let request = network.request(path: fullPath, method: .GET, data: nil)
+        let request = network.request(path: fullPath, method: .GET, parameters: nil)
         return httpClient.fetch(request)
     }
     
     func getMovieCredits(id: Int) -> AnyPublisher<TVShowCreditsResponse, ApiError> {
         let fullPath = "\(Endpoint.tvShow.rawValue)/\(id)/\(MovieDetailEndpoint.credits)"
-        let request = network.request(path: fullPath, method: .GET, data: nil)
+        let request = network.request(path: fullPath, method: .GET, parameters: nil)
         return httpClient.fetch(request)
     }
 }

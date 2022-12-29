@@ -17,9 +17,11 @@ enum Method: String {
     case POST
 }
 
+typealias Parameters = [String : Any]
+
 protocol NetworkProtocol {
     var baseURL: URL? { get set }
-    func request(path: String, method: Method, data: Data?) -> URLRequest
+    func request(path: String, method: Method, parameters: Parameters?) -> URLRequest
 }
 
 struct Network: NetworkProtocol {
@@ -31,24 +33,28 @@ struct Network: NetworkProtocol {
         self.apiKey = apiKey
     }
     
-    func request(path: String, method: Method, data: Data?) -> URLRequest {
-        guard let url = buildURL(with: path) else { fatalError("Error creating URLRequest") }
+    func request(path: String, method: Method, parameters: Parameters?) -> URLRequest {
+        guard let url = buildURL(with: path, parameters: parameters) else { fatalError("Error creating URLRequest") }
         
-        var request = URLRequest(url: url)
-        request.httpMethod = method.rawValue
-        request.allHTTPHeaderFields = ["Content-Type": "application/json"]
-        request.httpBody = data
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = method.rawValue
+        urlRequest.allHTTPHeaderFields = ["Content-Type": "application/json"]
         
-        return request
+        return urlRequest
     }
     
-    private func buildURL(with path: String) -> URL? {
+    private func buildURL(with path: String, parameters: Parameters?) -> URL? {
         guard let baseURL = baseURL else { return nil }
         
         guard var components = URLComponents(url: baseURL.appendingPathComponent(path), resolvingAgainstBaseURL: true)
         else { fatalError("Error creating URLComponents") }
-        components.queryItems = [URLQueryItem(name: "api_key", value: apiKey)]
-        
+        var queryItems = [URLQueryItem(name: "api_key", value: apiKey)]
+        if let parameters = parameters {
+            parameters.map { (key: String, value: Any) in
+                queryItems.append(URLQueryItem(name: key, value: "\(value)"))
+            }
+        }
+        components.queryItems = queryItems
         return components.url
     }
     
