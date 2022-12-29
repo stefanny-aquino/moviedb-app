@@ -15,5 +15,8 @@ struct TVShowResponse: Codable {
         case page = "page"
         case results = "results"
     }
-    
+}
+
+extension TVShowResponse {
+    static let stubTVShowResponse = TVShowResponse(page: 1, results: [TVShow.stubTVShow()])
 }

@@ -33,6 +33,6 @@ struct TVShow: Codable, Hashable {
 
 extension TVShow {
     static func stubTVShow() -> TVShow {
-        TVShow(id: 1, name: "", description: "", imagePath: nil, backdropPath: nil, vote: 0.0, airDate: "", createdBy: [], seasons: [])
+        TVShow(id: 1, name: "TV show Name", description: "TV show description", imagePath: nil, backdropPath: nil, vote: 0.0, airDate: "", createdBy: [], seasons: [])
     }
 }
