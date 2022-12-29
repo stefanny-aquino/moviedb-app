@@ -18,13 +18,29 @@ class HomeViewModel: ObservableObject {
     @Published var showDetailMovie = false
     @Published var errorAlert = false
     var errorMessage: String = ""
+    var totalPages = 0
+    var page : Int = 1
     
     init(homeService: HomeService = HomeService()) {
         self.homeService = homeService
     }
     
-    func getTVShows(_ filterType: FilterType) {
-        homeService.getTVShows(filterBy: filterType)
+    func loadMoreTVShows(item: TVShow) {
+        let index = self.tvShows.index(self.tvShows.endIndex, offsetBy: -1)
+        if tvShows[index].id == item.id,
+           (page + 1) <= totalPages {
+            page += 1
+            getTVShows(selection, page: page)
+        }
+    }
+    
+    func resetPagination() {
+        page = 1
+        tvShows.removeAll()
+    }
+    
+    func getTVShows(_ filterType: FilterType, page: Int) {
+        homeService.getTVShows(filterBy: filterType, page: page)
             .sink { [weak self] completion in
                 switch completion {
                 case .failure(let error):
@@ -34,7 +50,8 @@ class HomeViewModel: ObservableObject {
                     break
                 }
             } receiveValue: { response in
-                self.tvShows = response.results
+                self.tvShows.append(contentsOf: response.results)
+                self.totalPages = response.totalPages
             }
             .store(in: &disposables)
     }
